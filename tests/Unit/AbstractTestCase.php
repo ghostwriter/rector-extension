@@ -38,6 +38,12 @@ abstract class AbstractTestCase extends AbstractRectorTestCase
         $this->doTestFile($filePath);
     }
 
+    #[Override]
+    protected function provideComposerJsonFilePath(): ?string
+    {
+        return static::TEST_DIRECTORY . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'composer.json';
+    }
+
     /** @return iterable<string, array{0: string}> */
     public static function provideRectorCases(): iterable
     {
@@ -53,11 +59,5 @@ abstract class AbstractTestCase extends AbstractRectorTestCase
         }
 
         assert($found, sprintf('No fixture files found in directory "%s"', $fixtureDirectory));
-    }
-
-    #[\Override]
-    protected function provideComposerJsonFilePath(): ?string
-    {
-        return static::TEST_DIRECTORY . \DIRECTORY_SEPARATOR . 'config' . \DIRECTORY_SEPARATOR . 'composer.json';
     }
 }

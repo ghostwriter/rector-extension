@@ -29,13 +29,13 @@ Rector can be configured to use the Mockery Rector rules by adding the following
 
 declare(strict_types=1);
 
-use Mockery\Rector\DeprecatedFuncCallToArgumentMatcherStaticMethodCallRector;
-use Mockery\Rector\DeprecatedMockeryStaticMethodCallToArgumentMatcherStaticMethodCallRector;
+use Mockery\Rector\DeprecatedFuncCallToArgumentStaticMethodCallRector;
+use Mockery\Rector\DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector;
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()->withRules([
-    DeprecatedFuncCallToArgumentMatcherStaticMethodCallRector::class,
-    DeprecatedMockeryStaticMethodCallToArgumentMatcherStaticMethodCallRector::class,
+    DeprecatedFuncCallToArgumentStaticMethodCallRector::class,
+    DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector::class,
 ]);
 ```
 

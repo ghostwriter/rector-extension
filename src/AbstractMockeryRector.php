@@ -12,10 +12,10 @@ use Rector\VersionBonding\ValueObject\ComposerPackageConstraint;
 abstract class AbstractMockeryRector extends AbstractRector implements ComposerPackageConstraintInterface
 {
     /** @var string */
-    private const PACKAGE = 'mockery/mockery';
+    public const CONSTRAINT = '*';
 
     /** @var string */
-    public const CONSTRAINT = '*';
+    private const PACKAGE = 'mockery/mockery';
 
     #[Override]
     public function provideComposerPackageConstraint(): ComposerPackageConstraint

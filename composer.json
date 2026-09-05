@@ -43,16 +43,13 @@
         "#StopGenocide"
     ],
     "require": {
-        "php": ">=7.4",
-        "rector/rector": "^2.0 || ^2.6"
-    },
-    "conflict": {
-        "rector/rector": "<2.6.2"
+        "php": ">=7.4"
     },
     "require-dev": {
         "ext-xdebug": "*",
         "mockery/mockery": "^1.6.15",
-        "phpunit/phpunit": "^9.6.36"
+        "phpunit/phpunit": "^9.6.36",
+        "rector/rector": "^2.6.6"
     },
     "prefer-stable": true,
     "autoload": {

@@ -16,9 +16,6 @@ use function array_key_exists;
 
 final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector extends AbstractMockeryRector
 {
-    /** @var string */
-    public const CONSTRAINT = '>=1.6.16';
-
     /** @var array<string,bool> */
     private const METHODS = [
         'andAnyOtherArgs' => true,
@@ -53,7 +50,9 @@ final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector ex
     {
         $name = $this->getName($node->name);
 
-        assert(is_string($name));
+        if (! is_string($name)) {
+            return null;
+        }
 
         if (! array_key_exists($name, self::METHODS)) {
             return null;

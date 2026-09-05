@@ -1,5 +1,5 @@
 {
-    "name": "ghostwriter/rector-extension",
+    "name": "mockery/rector-extension",
     "description": "Rector upgrades rules for Mockery",
     "license": "BSD-3-Clause",
     "type": "rector-extension",
@@ -57,7 +57,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Mockery\\Rector\\": "src"
+            "Mockery\\Rector\\": "src/"
         }
     },
     "autoload-dev": {
@@ -111,7 +111,7 @@
             ]
         },
         "thanks": {
-            "name": "ghostwriter/rector-extension",
+            "name": "mockery/rector-extension",
             "url": "https://github.com/ghostwriter/rector-extension"
         }
     },

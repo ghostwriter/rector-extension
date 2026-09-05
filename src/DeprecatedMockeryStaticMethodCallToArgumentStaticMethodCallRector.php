@@ -52,9 +52,8 @@ final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector ex
     public function refactor(Node $node): ?Node
     {
         $name = $this->getName($node->name);
-        if (null === $name) {
-            return null;
-        }
+
+        assert(is_string($name));
 
         if (! array_key_exists($name, self::METHODS)) {
             return null;

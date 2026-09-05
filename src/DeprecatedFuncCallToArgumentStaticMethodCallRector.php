@@ -36,9 +36,8 @@ final class DeprecatedFuncCallToArgumentStaticMethodCallRector extends AbstractM
     public function refactor(Node $node): ?Node
     {
         $name = $this->getName($node->name);
-        if (null === $name) {
-            return null;
-        }
+
+        assert(is_string($name));
 
         if (! array_key_exists($name, self::FUNCTIONS)) {
             return null;

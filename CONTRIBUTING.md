@@ -19,9 +19,9 @@ Fork the project on GitHub and check out your copy locally.
 ## Step 2: Clone the repository
 
 ```bash
-git clone git@github.com:ghostwriter/wip.git
-cd wip
-git remote add upstream git://github.com/ghostwriter/wip.git
+git clone git@github.com:ghostwriter/rector-extension.git
+cd rector-extension
+git remote add upstream git://github.com/ghostwriter/rector-extension.git
 ```
 
 # Step 3: Branch

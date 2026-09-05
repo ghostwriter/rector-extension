@@ -13,6 +13,7 @@ Rector upgrades rules for Mockery
 You can install the package via composer:
 
 ```bash
+composer require rector/rector --dev
 composer require mockery/rector-extension --dev
 ```
 

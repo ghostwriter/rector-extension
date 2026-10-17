@@ -104,7 +104,7 @@
     "extra": {
         "rector": {
             "includes": [
-                "config/config.php"
+                "config/mockery.php"
             ]
         },
         "thanks": {

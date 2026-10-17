@@ -51,8 +51,7 @@ use Mockery\Rector\MockerySetList;
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()->withSets([
-    MockerySetList::MOCKERY_16, // v1.6.x
-    MockerySetList::MOCKERY_20, // v2.0.x
+    MockerySetList::COMPOSER_VERSION_BOUND
 ]);
 ```
 

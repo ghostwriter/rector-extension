@@ -10,11 +10,18 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
-
 use function array_key_exists;
+use function assert;
+use function is_string;
 
+/**
+ * @see \Tests\Unit\DeprecatedFuncCallToArgumentStaticMethodCallRector\DeprecatedFuncCallToArgumentStaticMethodCallRectorTest
+ */
 final class DeprecatedFuncCallToArgumentStaticMethodCallRector extends AbstractMockeryRector
 {
+    /** @var string */
+    public const CONSTRAINT = '>=1.6';
+
     /** @var array<string,bool> */
     private const FUNCTIONS = [
         'andAnyOtherArgs' => true,
@@ -22,7 +29,8 @@ final class DeprecatedFuncCallToArgumentStaticMethodCallRector extends AbstractM
         'anyArgs' => true,
     ];
 
-    /** @return list<class-string<Node>> */
+    /** @return list<class-string<FuncCall>> */
+    #[Override]
     public function getNodeTypes(): array
     {
         return [FuncCall::class];
@@ -34,9 +42,7 @@ final class DeprecatedFuncCallToArgumentStaticMethodCallRector extends AbstractM
     {
         $name = $this->getName($node->name);
 
-        if (! is_string($name)) {
-            return null;
-        }
+        assert(is_string($name));
 
         if (! array_key_exists($name, self::FUNCTIONS)) {
             return null;

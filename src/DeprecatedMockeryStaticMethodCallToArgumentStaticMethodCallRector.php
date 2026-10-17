@@ -10,12 +10,18 @@ use Override;
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
-use PHPStan\Type\ObjectType;
-
 use function array_key_exists;
+use function assert;
+use function is_string;
 
+/**
+ * @see \Tests\Unit\DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector\DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRectorTest
+ */
 final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector extends AbstractMockeryRector
 {
+    /** @var string */
+    public const CONSTRAINT = '>=1.6';
+
     /** @var array<string,bool> */
     private const METHODS = [
         'andAnyOtherArgs' => true,
@@ -38,7 +44,8 @@ final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector ex
         'type' => true,
     ];
 
-    /** @return list<class-string<Node>> */
+    /** @return list<class-string<StaticCall>> */
+    #[Override]
     public function getNodeTypes(): array
     {
         return [StaticCall::class];
@@ -50,15 +57,13 @@ final class DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector ex
     {
         $name = $this->getName($node->name);
 
-        if (! is_string($name)) {
-            return null;
-        }
+        assert(is_string($name));
 
         if (! array_key_exists($name, self::METHODS)) {
             return null;
         }
 
-        if (! $this->isObjectType($node->class, new ObjectType(Mockery::class))) {
+        if (! $this->isName($node->class, Mockery::class)) {
             return null;
         }
 

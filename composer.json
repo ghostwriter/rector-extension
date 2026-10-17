@@ -49,7 +49,7 @@
         "ext-xdebug": "*",
         "mockery/mockery": "^1.6.15",
         "phpunit/phpunit": "^9.6.36",
-        "rector/rector": "^2.6.6"
+        "rector/rector": "^2.7.0"
     },
     "prefer-stable": true,
     "autoload": {

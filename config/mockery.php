@@ -30,4 +30,10 @@ return static function (RectorConfig $rectorConfig): void {
         ShouldNotReceiveToExpectsNeverRector::CONSTRAINT
     );
 
+    $rectorConfig->ruleWithConfigurationComposerVersionBound(
+        ShouldReceiveOnceToExpectsRector::class,
+        [],
+        ShouldReceiveOnceToExpectsRector::PACKAGE,
+        ShouldReceiveOnceToExpectsRector::CONSTRAINT
+    );
 };

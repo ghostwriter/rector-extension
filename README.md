@@ -33,12 +33,14 @@ declare(strict_types=1);
 use Mockery\Rector\DeprecatedFuncCallToArgumentStaticMethodCallRector;
 use Mockery\Rector\DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector;
 use Mockery\Rector\ShouldNotReceiveToExpectsNeverRector;
+use Mockery\Rector\ShouldReceiveOnceToExpectsRector;
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()->withRules([
     DeprecatedFuncCallToArgumentStaticMethodCallRector::class,
     DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector::class,
     ShouldNotReceiveToExpectsNeverRector::class,
+    ShouldReceiveOnceToExpectsRector::class,
 ]);
 ```
 

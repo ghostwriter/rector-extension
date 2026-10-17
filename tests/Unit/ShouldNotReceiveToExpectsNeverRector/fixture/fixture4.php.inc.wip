@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+$mock = \Mockery::mock();
+
+$mock->shouldNotReceive()->bar('baz');
+
+?>
+-----
+<?php
+
+declare(strict_types=1);
+
+$mock = \Mockery::mock();
+
+$mock->expects()->bar('baz')->never();
+
+?>

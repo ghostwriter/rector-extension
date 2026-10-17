@@ -22,4 +22,12 @@ return static function (RectorConfig $rectorConfig): void {
         DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector::PACKAGE,
         DeprecatedMockeryStaticMethodCallToArgumentStaticMethodCallRector::CONSTRAINT
     );
+
+    $rectorConfig->ruleWithConfigurationComposerVersionBound(
+        ShouldNotReceiveToExpectsNeverRector::class,
+        [],
+        ShouldNotReceiveToExpectsNeverRector::PACKAGE,
+        ShouldNotReceiveToExpectsNeverRector::CONSTRAINT
+    );
+
 };
